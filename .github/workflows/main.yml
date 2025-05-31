@@ -2,8 +2,8 @@ name: Auto Post Sydney Result
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Setiap 1 jam (waktu UTC)
-  workflow_dispatch:      # Bisa juga dijalankan manual
+    - cron: '0 * * * *'  # Setiap 1 jam tepat (UTC)
+  workflow_dispatch:
 
 jobs:
   auto-post-sydney:
@@ -21,8 +21,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          pip install playwright
+          playwright install chromium
 
-      - name: Run Sydney result script
+      - name: Jalankan Script Sydney
         env:
           WP_USER: ${{ secrets.WP_USER }}
           WP_PASS: ${{ secrets.WP_PASS }}
