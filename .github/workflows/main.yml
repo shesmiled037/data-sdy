@@ -2,8 +2,8 @@ name: Auto Post Sydney Result
 
 on:
   schedule:
-    - cron: '50 6 * * *'  # Jam 13:50 WIB (06:50 UTC)
-  workflow_dispatch:
+    - cron: '0 * * * *'  # Setiap 1 jam (waktu UTC)
+  workflow_dispatch:      # Bisa juga dijalankan manual
 
 jobs:
   auto-post-sydney:
